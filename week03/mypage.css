@@ -112,4 +112,11 @@ h2 {
   letter-spacing: -0.02rem;
   resize: vertical;
   min-height: 3.25rem;
+  cursor: default;
+}
+
+.field-value--action {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
 }
