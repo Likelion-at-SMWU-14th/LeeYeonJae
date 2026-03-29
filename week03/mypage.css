@@ -1,0 +1,115 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Pretendard Variable";
+  background: linear-gradient(180deg, #362a21 0%, #0d0d0d 100%);
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+}
+
+.mypage-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(37.75rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  border-radius: 1.125rem;
+  background: rgba(60, 60, 60, 0.3);
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+  padding: 2rem 0;
+}
+
+header {
+  display: flex;
+  place-items: center;
+  padding: 0 1.81rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.9375rem;
+}
+
+.icon {
+  width: 1.88213rem;
+  height: 2.17888rem;
+}
+
+h2 {
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 136%;
+  letter-spacing: -0.042rem;
+}
+
+.out-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.out-btn img {
+  display: block;
+}
+
+.profile-section {
+  margin-top: 2rem;
+  padding: 0 2rem 0;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.profile-image {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.field-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field-group label {
+  color: #F0F0F0;
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.field-value {
+  font-family: "Pretendard Variable";
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0.625rem;
+  background: #404040;
+  border: none;
+  padding: 1rem 1.25rem;
+  color: #fff;
+  font-size: 1.0625rem;
+  line-height: 150%;
+  letter-spacing: -0.02rem;
+  resize: vertical;
+  min-height: 3.25rem;
+}
