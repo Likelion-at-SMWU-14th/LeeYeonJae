@@ -1,26 +1,28 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./mypage.css">
+    <link rel="stylesheet" href="{% static 'css/mypage.css' %}">
     <title>🦁프로필</title>
 </head>
 <body>
     <div class="mypage-box">
         <header>
             <div class="header-left">
-                <img class="icon" src="./images/icon.svg" alt="">
+                <img class="icon" src="{% static 'images/icon.svg' %}" alt="">
                 <h2>프로필</h2>
             </div>
-            <a href="./login.html" class="out-btn" title="로그아웃">
-                <img src="./images/out.svg" alt="메인으로 이동" />
+            <a href="{% url 'logout' %}" class="out-btn" title="로그아웃">
+                <img src="{% static 'images/out.svg' %}" alt="메인으로 이동" />
             </a>
         </header>
 
         <section class="profile-section">
             <div class="profile-card">
-                <img class="profile-image" src="./images/profile.jpg" alt="프로필 사진">
+                <img class="profile-image" src="{% static 'images/profile.jpg' %}" alt="프로필 사진">
 
                 <div class="field-group">
                     <label for="nickname">닉네임</label>
@@ -57,6 +59,6 @@
             </div>
         </section>
     </div>
-    <script src="./mypage.js"></script>
+    <script src="{% static 'js/mypage.js' %}"></script>
 </body>
 </html>
