@@ -19,14 +19,22 @@ function getRandomDrink() {
     return drinks[Math.floor(Math.random() * drinks.length)];
 }
 
-// 출력 조건
-const randomDrink = getRandomDrink();
+// 음료 출력 함수
+function buyRandomDrink() {
+    const randomDrink = getRandomDrink();
 
-if (randomDrink.price <= money) {
-    money -= randomDrink.price;
+    if (randomDrink.price <= money) {
+        money -= randomDrink.price;
 
-    console.log(`${randomDrink.name} 음료가 나왔어요! (가격: ${randomDrink.price}원)`);
-    console.log(`지갑에 남은 돈: ${money}원`);
-} else {
-    console.log("돈이 부족해요! 음료를 살 수 없어요!");
+        console.log(`${randomDrink.name} 음료가 나왔어요! (가격: ${randomDrink.price}원)`);
+        console.log(`지갑에 남은 돈: ${money}원`);
+    } else {
+        console.log("돈이 부족해요! 음료를 살 수 없어요!");
+    }
+}
+
+// 3번 반복
+for (let i = 0; i < 3; i++) {
+    console.log(`[${i + 1}번째 시도]`);
+    buyRandomDrink();
 }
