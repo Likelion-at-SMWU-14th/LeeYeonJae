@@ -13,3 +13,8 @@ const drinks = [
 
 // 지갑 금액
 let money = 7000;
+
+// 음료 1개 랜덤 선택
+function getRandomDrink() {
+    return drinks[Math.floor(Math.random() * drinks.length)];
+}
