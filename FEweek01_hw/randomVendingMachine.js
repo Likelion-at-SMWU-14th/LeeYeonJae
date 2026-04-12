@@ -18,3 +18,15 @@ let money = 7000;
 function getRandomDrink() {
     return drinks[Math.floor(Math.random() * drinks.length)];
 }
+
+// 출력 조건
+const randomDrink = getRandomDrink();
+
+if (randomDrink.price <= money) {
+    money -= randomDrink.price;
+
+    console.log(`${randomDrink.name} 음료가 나왔어요! (가격: ${randomDrink.price}원)`);
+    console.log(`지갑에 남은 돈: ${money}원`);
+} else {
+    console.log("돈이 부족해요! 음료를 살 수 없어요!");
+}
