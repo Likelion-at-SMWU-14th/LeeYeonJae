@@ -41,6 +41,11 @@ function handleWishClick(event) {
     if (target.classList.contains("delete-btn")) {
         target.parentElement.remove();
     }
+
+    // 텍스트 클릭 시 구매 완료 표시
+    else if (target.tagName === "SPAN") {
+        target.parentElement.classList.toggle("completed");
+    }
 }
 
 // 이벤트 등록
