@@ -60,3 +60,34 @@ moreBtn.addEventListener("click", () => {
         moreBtn.textContent = "...더 보기";
     }
 });
+
+// 댓글 기능
+const commentCount = commentBtn.nextElementSibling;
+commentBtn.addEventListener("click", () => {
+    const comment = window.prompt("댓글을 입력하세요.");
+
+    if (comment === null) {
+        return;
+    }
+
+    if (comment.trim() === "") {
+        window.alert("댓글을 입력해주세요.");
+        return;
+    }
+
+    const currentCount = Number(commentCount.textContent);
+    commentCount.textContent = currentCount + 1;
+});
+
+// 공유 기능
+const shareCount = shareBtn.nextElementSibling;
+shareBtn.addEventListener("click", () => {
+    const isConfirmed = window.confirm("공유하시겠습니까?");
+
+    if (!isConfirmed) {
+        return;
+    }
+
+    const currentCount = Number(shareCount.textContent);
+    shareCount.textContent = currentCount + 1;
+});
