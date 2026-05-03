@@ -6,3 +6,21 @@ const saveBtn = document.getElementById("save-btn");
 
 const menuBtn = document.querySelector("#menu-btn");
 const moreBtn = document.querySelector("#more");
+
+// 좋아요 기능
+const likeIcon = likeBtn.querySelector("img");
+const likeCount = likeBtn.nextElementSibling;
+
+likeBtn.addEventListener("click", () => {
+    likeBtn.classList.toggle("active");
+
+    let count = Number(likeCount.textContent);
+
+    if (likeBtn.classList.contains("active")) {
+        likeIcon.src = "./assets/icon/heart-filled.svg";
+        likeCount.textContent = count + 1;
+    } else {
+        likeIcon.src = "./assets/icon/heart-empty.svg";
+        likeCount.textContent = count - 1;
+    }
+});
