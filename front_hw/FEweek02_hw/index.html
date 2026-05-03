@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./instagram.css">
+    <title>FE 2주차 과제</title>
+</head>
+<body>
+    <div class="instagram-post">
+        <div class="section-1-header">
+            <div class="user">
+                <img class="profile" src="./assets/profile.png" />
+                <div class="info">
+                    <p class="user_name">lrushyanz</p>
+                    <p class="user_place">seoul</p>
+                </div>
+            </div>
+            <button id="menu-btn">
+                <img class="icon" src="./assets/icon/more.svg" />
+            </button>
+        </div>
+
+        <div class="section-2-image">
+            <img id="content" src="./assets/monchhichi.png" />
+        </div>
+
+        <div class="section-3-actions">
+            <div class="left-group">
+                <div class="action">
+                    <button id="like-btn">
+                        <img class="icon" src="./assets/icon/heart-empty.svg" />
+                    </button>
+                    <span>20</span>
+                </div>
+                <div class="action">
+                    <button id="comment-btn">
+                        <img class="icon" src="./assets/icon/comment.svg" />
+                    </button>
+                    <span>2</span>
+                </div>
+                <div class="action">
+                    <button id="share-btn">
+                        <img class="icon" src="./assets/icon/share.svg" />
+                    </button>
+                    <span>6</span>
+                </div>
+            </div>
+            <button id="save-btn">
+                <img class="icon" src="./assets/icon/bookmark-empty.svg" />
+            </button>
+        </div>
+
+        <div class="section-4-caption">
+            <p class="caption">
+                <span class="user_name">lrushyanz</span>
+                이 캐릭터의 이름은??????
+                <span id="more" class="more">...더 보기</span>
+            </p>
+        </div>
+    </div>
+    <script src="instagram.js"></script>
+</body>
+</html>
