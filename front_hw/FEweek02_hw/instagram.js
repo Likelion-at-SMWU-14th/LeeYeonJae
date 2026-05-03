@@ -24,3 +24,16 @@ likeBtn.addEventListener("click", () => {
         likeCount.textContent = count - 1;
     }
 });
+
+// 스크랩 기능
+const saveIcon = saveBtn.querySelector("img");
+
+saveBtn.addEventListener("click", () => {
+    if (saveBtn.classList.contains("active")) {
+        saveBtn.classList.remove("active");
+        saveIcon.src = "./assets/icon/bookmark-empty.svg";
+    } else {
+        saveBtn.classList.add("active");
+        saveIcon.src = "./assets/icon/bookmark-filled.svg";
+    }
+});
