@@ -37,3 +37,26 @@ saveBtn.addEventListener("click", () => {
         saveIcon.src = "./assets/icon/bookmark-filled.svg";
     }
 });
+
+// 더 보기 기능
+const caption = document.querySelector(".section-4-caption .caption");
+const moreText = document.createElement("span");
+
+moreText.innerHTML = "<br>몬치치~🐒"; 
+moreText.style.display = "none";
+
+caption.insertBefore(moreText, moreBtn);
+
+let isMore = false;
+
+moreBtn.addEventListener("click", () => {
+    isMore = !isMore;
+
+    if (isMore) {
+        moreText.style.display = "inline";
+        moreBtn.textContent = " 접기";
+    } else {
+        moreText.style.display = "none";
+        moreBtn.textContent = "...더 보기";
+    }
+});
