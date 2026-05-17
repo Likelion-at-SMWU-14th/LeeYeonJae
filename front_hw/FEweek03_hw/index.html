@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./music.css">
+    <title>FE 3주차 과제</title>
+</head>
+<body>
+    <div class="container">
+        <p class="title">♩⋆*₊ music ♬ ˚.</p>
+        <p class="time" id="time"></p>
+
+        <div class="search">
+            <input 
+                id="search-input" 
+                class="search-text" 
+                type="text" 
+                placeholder="가수 이름을 입력해 주세요."
+            />
+            <button class="search-button">
+                <img src="./assets/search.svg" />
+            </button>
+        </div>
+
+        <div class="list" id="result-container"></div>
+    </div>
+    <script src="music.js"></script>
+</body>
+</html>
