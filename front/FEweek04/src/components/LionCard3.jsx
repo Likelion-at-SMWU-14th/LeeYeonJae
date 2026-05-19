@@ -29,7 +29,7 @@ const CardText = styled.p`
 `
 
 const LionCard3 = () => {
-  const isReal = true
+  const isReal = false
 
   return (
     <Card>
