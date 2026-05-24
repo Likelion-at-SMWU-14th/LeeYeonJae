@@ -61,7 +61,7 @@ const Screen = styled.div`
   justify-content: center;
   width: 100%;
   min-height: 0;
-  background-color: #ffffff;
+  background: #ffeaf3;
   overflow: hidden;
 `;
 

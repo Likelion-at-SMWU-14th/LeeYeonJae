@@ -1,10 +1,13 @@
 import styled from "styled-components";
 import Frame from "./components/Frame";
+import Logo from "./components/Logo";
 
 function App() {
   return (
     <Wrapper>
-      <Frame></Frame>
+      <Frame>
+        <Logo />
+      </Frame>
     </Wrapper>
   );
 }
