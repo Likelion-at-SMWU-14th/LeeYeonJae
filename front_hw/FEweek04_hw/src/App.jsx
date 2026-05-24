@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Frame from "./components/Frame";
 import Logo from "./components/Logo";
 import LikeCard from "./components/LikeCard";
+import HateCard from "./components/HateCard";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Frame>
         <Logo />
         <LikeCard />
+        <HateCard />
       </Frame>
     </Wrapper>
   );
