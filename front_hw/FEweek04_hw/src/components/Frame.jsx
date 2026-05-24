@@ -57,8 +57,10 @@ const Speaker = styled.div`
 const Screen = styled.div`
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 30px;
   width: 100%;
   min-height: 0;
   background: #ffeaf3;
