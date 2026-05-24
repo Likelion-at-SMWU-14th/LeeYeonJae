@@ -3,6 +3,7 @@ import Frame from "./components/Frame";
 import Logo from "./components/Logo";
 import LikeCard from "./components/LikeCard";
 import HateCard from "./components/HateCard";
+import OrderButton from "./components/OrderButton";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Logo />
         <LikeCard />
         <HateCard />
+        <OrderButton />
       </Frame>
     </Wrapper>
   );

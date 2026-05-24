@@ -60,7 +60,7 @@ const Screen = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   width: 100%;
   min-height: 0;
   background: #ffeaf3;
@@ -72,7 +72,7 @@ const Bottom = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 30px 0 10px;
+  padding: 20px 0 0;
 `;
 
 const HomeButton = styled.div`
