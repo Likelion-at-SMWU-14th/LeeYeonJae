@@ -1,0 +1,20 @@
+/* PretendardVariable */
+@font-face {
+  font-family: "pretendard";
+  src: url("./assets/fonts/PretendardVariable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+/* KirangHaerang */
+@font-face {
+  font-family: "kirang";
+  src: url("./assets/fonts/BMKIRANGHAERANG-TTF.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: "pretendard";
+}
