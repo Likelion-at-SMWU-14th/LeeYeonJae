@@ -9,7 +9,7 @@ export const Page = styled.main`
 
   padding: 3rem 1.5rem;
 
-  background-color: #7a2727;
+  background-color: #f3f3f5;
 `;
 
 export const CalculatorPanel = styled.section`
@@ -18,11 +18,14 @@ export const CalculatorPanel = styled.section`
 
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.2rem;
 
-  padding: 1rem;
+  padding: 0.25rem;
 
-  background-color: #d4e158;
+  background-color: #3d3d40;
+  border: 1px solid #2d2d30;
+
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.18);
 `;
 
 export const Display = styled.div`
@@ -34,27 +37,30 @@ export const Display = styled.div`
 
   padding: 1.5rem;
 
-  font-size: 4rem;
+  background-color: #5c5c60;
+  color: #ffffff;
 
-  background-color: #6fe073;
+  font-size: 4rem;
+  font-weight: 300;
+  line-height: 1;
 `;
 
 export const ButtonGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.25rem;
-
-  background-color: #53e1de;
 `;
 
 export const CalcButton = styled.div`
-  min-height: 5rem;
+  min-height: 5.25rem;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   grid-column: span ${({ $span }) => $span};
+
+  border: 1px solid #444444;
 
   background-color: ${({ $variant }) => {
     if ($variant === "operator") {
@@ -70,5 +76,19 @@ export const CalcButton = styled.div`
 
   color: #ffffff;
 
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+
+  cursor: pointer;
+
+  transition:
+    filter 0.2s ease,
+    transform 0.1s ease;
+
+  &:hover {
+    filter: brightness(1.08);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
 `;
