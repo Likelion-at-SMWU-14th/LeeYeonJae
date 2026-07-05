@@ -12,7 +12,12 @@ const Movie = () => {
     .filter(
       (movie) => selectedGenres === "전체" || movie.genre === selectedGenres,
     )
-    .filter((movie) => movie.title.includes(search));
+    .filter(
+      (movie) =>
+        movie.title.includes(search) ||
+        movie.genre.includes(search) ||
+        movie.description.includes(search),
+    );
 
   const genreList = [
     "전체",
