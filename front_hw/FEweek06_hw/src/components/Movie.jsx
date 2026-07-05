@@ -12,12 +12,15 @@ const Movie = () => {
     .filter(
       (movie) => selectedGenres === "전체" || movie.genre === selectedGenres,
     )
-    .filter(
-      (movie) =>
-        movie.title.includes(search) ||
-        movie.genre.includes(search) ||
-        movie.description.includes(search),
-    );
+    .filter((movie) => {
+      const keyword = search.toLowerCase();
+
+      return (
+        movie.title.toLowerCase().includes(keyword) ||
+        movie.genre.toLowerCase().includes(keyword) ||
+        movie.description.toLowerCase().includes(keyword)
+      );
+    });
 
   const genreList = [
     "전체",
