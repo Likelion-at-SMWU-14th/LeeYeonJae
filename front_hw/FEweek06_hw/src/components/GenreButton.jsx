@@ -21,13 +21,13 @@ export default GenreButton;
 const ButtonContainer = styled.div`
   display: flex;
   gap: 12px;
-  margin-bottom: 24px;
 `;
 
 const Button = styled.button`
   padding: 8px 16px;
   font-size: 16px;
   font-weight: 600;
+  white-space: nowrap;
   border-radius: 999px;
   background-color: ${(props) => (props.$selected ? "#ff7a2f" : "#ffffff")};
   color: ${(props) => (props.$selected ? "#ffffff" : "#ff7a2f")};

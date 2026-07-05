@@ -6,11 +6,13 @@ import GenreButton from "./GenreButton";
 const Movie = () => {
   const [movies, setMovies] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState("전체");
+  const [search, setSearch] = useState("");
 
-  const movieList =
-    selectedGenres === "전체"
-      ? movies
-      : movies.filter((movie) => movie.genre === selectedGenres);
+  const movieList = movies
+    .filter(
+      (movie) => selectedGenres === "전체" || movie.genre === selectedGenres,
+    )
+    .filter((movie) => movie.title.includes(search));
 
   const genreList = [
     "전체",
@@ -37,26 +39,41 @@ const Movie = () => {
     <Container>
       <Title>무비차트</Title>
 
-      <GenreButton
-        genreList={genreList}
-        selectedGenre={selectedGenres}
-        setSelectedGenre={setSelectedGenres}
-      />
+      <FilterContainer>
+        {/* 장르별 필터링 기능 */}
+        <GenreButton
+          genreList={genreList}
+          selectedGenre={selectedGenres}
+          setSelectedGenre={setSelectedGenres}
+        />
 
-      <MovieGrid>
-        {movieList.map((movie) => (
-          <MovieCard key={movie.id}>
-            <Poster src={movie.poster} alt={movie.title} />
+        {/* 검색 기능 */}
+        <SearchInput
+          type="text"
+          placeholder="검색"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </FilterContainer>
 
-            <MovieInfo>
-              <MovieTitle>{movie.title}</MovieTitle>
-              <Rating>⭐️ {movie.rating}</Rating>
-              <Genre>{movie.genre}</Genre>
-              <Description>{movie.description}</Description>
-            </MovieInfo>
-          </MovieCard>
-        ))}
-      </MovieGrid>
+      {movieList.length === 0 ? (
+        <NoResult>검색 결과가 없습니다.</NoResult>
+      ) : (
+        <MovieGrid>
+          {movieList.map((movie) => (
+            <MovieCard key={movie.id}>
+              <Poster src={movie.poster} alt={movie.title} />
+
+              <MovieInfo>
+                <MovieTitle>{movie.title}</MovieTitle>
+                <Rating>⭐️ {movie.rating}</Rating>
+                <Genre>{movie.genre}</Genre>
+                <Description>{movie.description}</Description>
+              </MovieInfo>
+            </MovieCard>
+          ))}
+        </MovieGrid>
+      )}
     </Container>
   );
 };
@@ -129,4 +146,40 @@ const Description = styled.p`
   color: #cccccc;
   font-size: 14px;
   line-height: 1.5;
+`;
+
+const FilterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+`;
+
+const SearchInput = styled.input`
+  width: 100%;
+  max-width: 360px;
+  padding: 8px 4px;
+  font-size: 16px;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  color: #ff7a2f;
+  border-bottom: 2px solid #ff7a2f;
+
+  &::placeholder {
+    color: #909090;
+    font-weight: 400;
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const NoResult = styled.p`
+  margin-top: 80px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
 `;
