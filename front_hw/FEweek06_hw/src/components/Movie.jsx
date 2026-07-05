@@ -1,9 +1,26 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import GenreButton from "./GenreButton";
 
 const Movie = () => {
   const [movies, setMovies] = useState([]);
+  const [selectedGenres, setSelectedGenres] = useState("전체");
+
+  const movieList =
+    selectedGenres === "전체"
+      ? movies
+      : movies.filter((movie) => movie.genre === selectedGenres);
+
+  const genreList = [
+    "전체",
+    "로맨스",
+    "드라마",
+    "범죄",
+    "스릴러",
+    "SF",
+    "공포",
+  ];
 
   useEffect(() => {
     axios
@@ -20,8 +37,14 @@ const Movie = () => {
     <Container>
       <Title>무비차트</Title>
 
+      <GenreButton
+        genreList={genreList}
+        selectedGenre={selectedGenres}
+        setSelectedGenre={setSelectedGenres}
+      />
+
       <MovieGrid>
-        {movies.map((movie) => (
+        {movieList.map((movie) => (
           <MovieCard key={movie.id}>
             <Poster src={movie.poster} alt={movie.title} />
 
