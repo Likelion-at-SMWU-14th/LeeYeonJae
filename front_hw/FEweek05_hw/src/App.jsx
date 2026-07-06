@@ -1,7 +1,8 @@
 import "./App.css";
+import Melon from "./components/Melon";
 
 function App() {
-  return <></>;
+  return <Melon />;
 }
 
 export default App;

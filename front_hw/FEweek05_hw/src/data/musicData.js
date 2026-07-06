@@ -1,13 +1,13 @@
-import cover1 from "../assets/1.jpg";
-import cover2 from "../assets/2.jpg";
-import cover3 from "../assets/3.jpg";
-import cover4 from "../assets/4.jpg";
-import cover5 from "../assets/5.jpg";
-import cover6 from "../assets/6.jpg";
-import cover7 from "../assets/7.jpg";
-import cover8 from "../assets/8.jpg";
-import cover9 from "../assets/9.jpg";
-import cover10 from "../assets/10.jpg";
+import cover1 from "../assets/cover/1.jpg";
+import cover2 from "../assets/cover/2.jpg";
+import cover3 from "../assets/cover/3.jpg";
+import cover4 from "../assets/cover/4.jpg";
+import cover5 from "../assets/cover/5.jpg";
+import cover6 from "../assets/cover/6.jpg";
+import cover7 from "../assets/cover/7.jpg";
+import cover8 from "../assets/cover/8.jpg";
+import cover9 from "../assets/cover/9.jpg";
+import cover10 from "../assets/cover/10.jpg";
 
 export const music = [
   {
