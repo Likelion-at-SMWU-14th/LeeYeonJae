@@ -85,3 +85,36 @@ export const MenuItem = styled.button`
     border-bottom: 3px solid #00d10b;
   }
 `;
+
+export const Content = styled.div`
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0 4rem;
+`;
+
+export const ChartTitle = styled.p`
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 0 0 1rem;
+`;
+
+export const ActionButtonContainer = styled.div`
+  display: flex;
+  gap: 0.6rem;
+`;
+
+export const ActionButton = styled.button`
+  font-size: 0.8rem;
+  background-color: #ffffff;
+  color: #404040;
+  border: 1px solid #b8b8b8;
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+`;

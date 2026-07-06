@@ -1,18 +1,29 @@
 import * as S from "../styles/Melon.Styled";
 import searchIcon from "../assets/icon/search-icon.svg";
 import MenuTab from "./MenuTab";
+import ActionButton from "./ActionButton";
 
 function Melon() {
   const menuList = [
-    "멜론차트",
-    "최신음악",
-    "장르음악",
-    "멜론DJ",
-    "멜론TV",
-    "스타포스트",
-    "매거진",
-    "뮤직어워드",
-    "뮤직웨이브",
+    { id: 1, title: "멜론차트" },
+    { id: 2, title: "최신음악" },
+    { id: 3, title: "장르음악" },
+    { id: 4, title: "멜론DJ" },
+    { id: 5, title: "멜론TV" },
+    { id: 6, title: "스타포스트" },
+    { id: 7, title: "매거진" },
+    { id: 8, title: "뮤직어워드" },
+    { id: 9, title: "뮤직웨이브" },
+  ];
+
+  const actionList = [
+    { id: 1, label: "셔플듣기" },
+    { id: 2, label: "전체듣기" },
+    { id: 3, label: "듣기" },
+    { id: 4, label: "담기" },
+    { id: 5, label: "다운" },
+    { id: 6, label: "FLAC" },
+    { id: 7, label: "선물" },
   ];
 
   return (
@@ -33,9 +44,19 @@ function Melon() {
 
       <S.MenuNav>
         {menuList.map((menu, index) => (
-          <MenuTab key={menu} title={menu} active={index === 0} />
+          <MenuTab key={menu.id} title={menu.title} active={index === 0} />
         ))}
       </S.MenuNav>
+
+      <S.Content>
+        <S.ChartTitle>TOP100</S.ChartTitle>
+
+        <S.ActionButtonContainer>
+          {actionList.map((button) => (
+            <ActionButton key={button.id} label={button.label} />
+          ))}
+        </S.ActionButtonContainer>
+      </S.Content>
     </S.Page>
   );
 }
