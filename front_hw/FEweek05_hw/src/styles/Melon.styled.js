@@ -15,13 +15,14 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  padding: 2rem 1.5rem;
+  padding: 2rem 4rem;
 `;
 
 export const Logo = styled.p`
   font-size: 3rem;
   font-weight: 600;
   color: #00d10b;
+  cursor: default;
 `;
 
 export const SearchContainer = styled.div`
@@ -57,4 +58,30 @@ export const SearchButton = styled.button`
 export const SearchIcon = styled.img`
   width: 1.5rem;
   height: 1.5rem;
+`;
+
+export const MenuNav = styled.nav`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #b8b8b8;
+  gap: 2rem;
+  padding: 0 4rem;
+`;
+
+export const MenuItem = styled.button`
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-bottom: 3px solid
+    ${({ active }) => (active ? "#00d10b" : "transparent")};
+  color: ${({ active }) => (active ? "#00d10b" : "#202020")};
+  background: transparent;
+  padding: 0.8rem 0.2rem;
+  cursor: pointer;
+
+  &:hover {
+    color: #00d10b;
+    border-bottom: 3px solid #00d10b;
+  }
 `;
