@@ -2,6 +2,7 @@ import * as S from "../styles/Melon.Styled";
 import searchIcon from "../assets/icon/search-icon.svg";
 import MenuTab from "./MenuTab";
 import ActionButton from "./ActionButton";
+import MusicChart from "./MusicChart";
 
 function Melon() {
   const menuList = [
@@ -56,6 +57,8 @@ function Melon() {
             <ActionButton key={button.id} label={button.label} />
           ))}
         </S.ActionButtonContainer>
+
+        <MusicChart />
       </S.Content>
     </S.Page>
   );

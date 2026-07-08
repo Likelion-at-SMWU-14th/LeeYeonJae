@@ -11,14 +11,16 @@ import cover10 from "../assets/cover/10.jpg";
 
 export const music = [
   {
+    id: 1,
     rank: 1,
     image: cover1,
-    title: "잠자기",
+    title: "갑자기",
     artist: "아이오아이 (I.O.I)",
     album: "I.O.I 3rd MINI ALBUM",
     likes: "62,661",
   },
   {
+    id: 2,
     rank: 2,
     image: cover2,
     title: "REDRED",
@@ -27,6 +29,7 @@ export const music = [
     likes: "71,414",
   },
   {
+    id: 3,
     rank: 3,
     image: cover3,
     title: "LOVE ATTACK",
@@ -35,6 +38,7 @@ export const music = [
     likes: "94,595",
   },
   {
+    id: 4,
     rank: 4,
     image: cover4,
     title: "LEMONADE",
@@ -43,6 +47,7 @@ export const music = [
     likes: "44,831",
   },
   {
+    id: 5,
     rank: 5,
     image: cover5,
     title: "It's Me",
@@ -51,6 +56,7 @@ export const music = [
     likes: "47,360",
   },
   {
+    id: 6,
     rank: 6,
     image: cover6,
     title: "소문의 낙원",
@@ -59,6 +65,7 @@ export const music = [
     likes: "84,848",
   },
   {
+    id: 7,
     rank: 7,
     image: cover7,
     title: "RUDE!",
@@ -67,14 +74,16 @@ export const music = [
     likes: "69,176",
   },
   {
+    id: 8,
     rank: 8,
     image: cover8,
-    title: "캐치 캐처",
+    title: "캐치 캐치",
     artist: "YENA (최예나)",
     album: "LOVE CATCHER",
     likes: "43,440",
   },
   {
+    id: 9,
     rank: 9,
     image: cover9,
     title: "사랑하게 될 거야",
@@ -83,6 +92,7 @@ export const music = [
     likes: "141,639",
   },
   {
+    id: 10,
     rank: 10,
     image: cover10,
     title: "Drowning",
