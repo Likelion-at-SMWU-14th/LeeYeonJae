@@ -4,7 +4,7 @@ const useInput = (initialValue = "") => {
   const [value, setValue] = useState(initialValue);
 
   const handleChange = (e) => {
-    setValue(e.target.value);
+    setValue(e.target.value.trim());
   };
 
   return {
