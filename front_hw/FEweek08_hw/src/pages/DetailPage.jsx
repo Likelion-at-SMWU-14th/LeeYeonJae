@@ -11,6 +11,7 @@ const DetailPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [detail, setDetail] = useState([]);
+  const [loading, setLoading] = useState(false);
   const baseURL = import.meta.env.VITE_API_BASE_URL;
 
   const getDetail = (id) => {
@@ -28,6 +29,8 @@ const DetailPage = () => {
   const deleteComment = () => {
     if (!confirm("삭제하시겠습니까?")) return;
 
+    setLoading(true);
+
     axios
       .delete(`${baseURL}/entries/${id}/`)
       .then(() => {
@@ -38,12 +41,19 @@ const DetailPage = () => {
       .catch((err) => {
         alert("게시글 삭제 실패.");
         console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   useEffect(() => {
     getDetail(id);
   }, [id]);
+
+  if (loading) {
+    return <Message>게시글을 삭제하는 중입니다 . . . 🐢</Message>;
+  }
 
   return (
     <DetailPageWrapper>
@@ -72,4 +82,11 @@ const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 1.75rem;
+`;
+
+const Message = styled.p`
+  padding: 2rem 3.5rem;
+  color: var(--text-brown);
+  font-size: 1.25rem;
+  font-weight: 600;
 `;
