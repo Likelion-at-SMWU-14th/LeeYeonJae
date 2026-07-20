@@ -1,9 +1,49 @@
-import { COMMENT_DATA } from "../constant/comment";
 import Comment from "./Comment";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const CommentList = () => {
-  const comments = COMMENT_DATA;
+  const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  const getComment = () => {
+    axios
+      .get("http://127.0.0.1:8000/entries/")
+      .then((res) => {
+        console.log(res);
+        setComments(res.data.reverse());
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(true);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    getComment();
+  }, []);
+
+  if (loading) {
+    return <Message>게시글을 불러오는 중입니다 . . . 🐢</Message>;
+  }
+
+  if (error) {
+    return (
+      <Message>
+        게시글을 불러오지 못했습니다. 잠시 후 다시 시도해주세요 ! ! 💥
+      </Message>
+    );
+  }
+
+  if (comments.length === 0) {
+    return <Message>아직 등록된 게시글이 없어요 . . 🥲</Message>;
+  }
+
   return (
     <CommentWrapper>
       {comments.map((comment) => (
@@ -21,4 +61,11 @@ const CommentWrapper = styled.div`
   padding: 2rem 3.5rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem 1.75rem;
+`;
+
+const Message = styled.p`
+  padding: 2rem 3.5rem;
+  color: var(--text-brown);
+  font-size: 1.25rem;
+  font-weight: 600;
 `;
