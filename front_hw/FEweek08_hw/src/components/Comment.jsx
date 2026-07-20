@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import LionIcon from "./LionIcon";
 import { useNavigate } from "react-router-dom";
+import { formatDate } from "../utils/formatDate";
 
 const Comment = ({ comment }) => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const Comment = ({ comment }) => {
         <LionIcon />
         <HeaderInfo>
           <Author>{comment.author}</Author>
-          <DateTime>{comment.timestamp}</DateTime>
+          <DateTime>{formatDate(comment.timestamp)}</DateTime>
         </HeaderInfo>
       </HeaderContainer>
       <CommentText>{comment.comment}</CommentText>

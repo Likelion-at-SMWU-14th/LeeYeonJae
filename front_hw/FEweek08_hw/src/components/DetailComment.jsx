@@ -3,6 +3,7 @@ import styled from "styled-components";
 import LionIcon from "../components/LionIcon";
 import Out from "../assets/Out.svg";
 import { useNavigate } from "react-router-dom";
+import { formatDate } from "../utils/formatDate";
 
 const DetailComment = ({ detail }) => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const DetailComment = ({ detail }) => {
         <LionIcon />
         <InfoWrapper>
           <Author>{detail.author}</Author>
-          <DateTime>{detail.timestamp}</DateTime>
+          <DateTime>{formatDate(detail.timestamp)}</DateTime>
         </InfoWrapper>
       </ProfileWrapper>
       <CommentText>{detail.comment}</CommentText>
