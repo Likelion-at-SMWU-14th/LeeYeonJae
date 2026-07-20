@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const DetailPage = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [detail, setDetail] = useState([]);
   const baseURL = import.meta.env.VITE_API_BASE_URL;
@@ -24,6 +25,22 @@ const DetailPage = () => {
       });
   };
 
+  const deleteComment = () => {
+    if (!confirm("삭제하시겠습니까?")) return;
+
+    axios
+      .delete(`${baseURL}/entries/${id}/`)
+      .then(() => {
+        alert("게시글 삭제 완료!");
+        console.log("게시글 삭제가 완료되었습니다.");
+        navigate("/");
+      })
+      .catch((err) => {
+        alert("게시글 삭제 실패.");
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     getDetail(id);
   }, [id]);
@@ -33,7 +50,7 @@ const DetailPage = () => {
       <DetailComment detail={detail} />
       <ButtonWrapper>
         <Button text="수정하기" />
-        <Button text="삭제하기" />
+        <Button text="삭제하기" onBtnClick={deleteComment} />
       </ButtonWrapper>
     </DetailPageWrapper>
   );
