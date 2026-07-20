@@ -49,7 +49,7 @@ const DetailPage = () => {
     <DetailPageWrapper>
       <DetailComment detail={detail} />
       <ButtonWrapper>
-        <Button text="수정하기" />
+        <Button text="수정하기" onBtnClick={() => navigate(`/edit/${id}`)} />
         <Button text="삭제하기" onBtnClick={deleteComment} />
       </ButtonWrapper>
     </DetailPageWrapper>
