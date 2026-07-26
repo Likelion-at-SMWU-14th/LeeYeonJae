@@ -7,14 +7,18 @@ export const clearAuthStorage = () => {
   localStorage.removeItem("username");
 };
 
+// API 요청에 공통으로 적용되는 기본 설정을 포함한 Axios 인스턴스
 const api = axios.create({
-  baseURL: API_BASE_URL,
-  withCredentials: true,
+  baseURL: API_BASE_URL, // 요청마다 전체 서버 주소를 작성할 필요 없음
+  withCredentials: true, // 요청마다 브라우저 쿠키를 함께 전송
 });
 
+// 서버로 API 요청을 보내기 전 실행
 api.interceptors.request.use((config) => {
+  // 저장된 Access Token을 가져옴
   const accessToken = localStorage.getItem("accessToken");
 
+  // Access Token이 있으면 API 요청 헤더에 추가
   if (accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;
   }
