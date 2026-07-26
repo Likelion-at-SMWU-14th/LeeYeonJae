@@ -70,8 +70,11 @@ api.interceptors.response.use(
       }
 
       const newAccessToken = await refreshPromise;
+
+      // 재발급 받은 Access Token으로 기존 인증 정보를 업데이트
       originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
 
+      // 새 Access Token을 사용해 실패한 기존 요청을 다시 전송
       return api(originalRequest);
     } catch (refreshError) {
       // 토큰 재발급에 실패하면 브라우저 localStorage에 저장된 정보를 삭제하고 로그인 화면으로 이동
