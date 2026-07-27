@@ -19,24 +19,31 @@ const LoginPage = () => {
     try {
       setIsLoading(true);
 
+      // ① 서버에 로그인 요청(POST)
       const response = await axios.post(
         "http://127.0.0.1:8000/login/",
         { username, password },
-        { withCredentials: true },
+        { withCredentials: true }, // 쿠키에 저장된 인증 정보도 함께 전송
       );
 
+      // ② 서버의 응답에서 Access Token 추출
       const accessToken = response.data.accessToken ?? response.data.access;
 
+      // 토큰이 없으면 로그인을 처리하지 않음
       if (!accessToken) {
         throw new Error("Access Token이 없습니다.");
       }
 
+      // ③ Access Token을 브라우저 localStorage에 저장
       localStorage.setItem("accessToken", accessToken);
+
+      // ④ username도 브라우저 localStorage에 저장
       localStorage.setItem(
         "username",
         response.data.username ?? username.trim(),
       );
 
+      // ⑤ 로그인 성공 후 CommentPage(/)로 이동
       alert("로그인에 성공했어요!");
       navigate("/");
     } catch (error) {

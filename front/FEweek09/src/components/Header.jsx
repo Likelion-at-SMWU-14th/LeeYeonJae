@@ -28,14 +28,19 @@ const Header = ({ title, description, button }) => {
 
   const handleLogout = async () => {
     try {
+      // ① 서버에 로그아웃 요청(POST)
       await api.post("/logout/");
     } catch (error) {
       console.error("로그아웃 요청 실패:", error);
     } finally {
+      // ② 브라우저 localStorage에 저장된 정보 삭제
       clearAuthStorage();
 
+      // ③ 로그아웃 후 CommentPage(/)로 이동
       alert("로그아웃되었습니다.");
       navigate("/");
+
+      // ④ 화면을 새로고침해 변경된 로그인 상태를 반영
       window.location.reload();
     }
   };
