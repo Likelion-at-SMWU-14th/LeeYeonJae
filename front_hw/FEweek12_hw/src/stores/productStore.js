@@ -6,13 +6,11 @@ const useProductStore = create(
   devtools((set) => ({
     products: [],
     isLoading: false,
-    error: null,
 
     fetchProducts: async () => {
       set(
         {
           isLoading: true,
-          error: null,
         },
         undefined,
         "product/fetchProducts/pending",
@@ -32,7 +30,6 @@ const useProductStore = create(
       } catch {
         set(
           {
-            error: "상품 조회 실패",
             isLoading: false,
           },
           undefined,
