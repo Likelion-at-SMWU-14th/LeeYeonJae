@@ -8,6 +8,7 @@ export const useCreatePost = () => {
     mutationFn: createPost,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["posts"] });
+      console.log("데이터 변경 성공");
     },
   });
 };
