@@ -10,6 +10,5 @@ export const useDeleteUser = () => {
       alert("성공적으로 삭제되었습니다");
       queryClient.invalidateQueries({ queryKey: ["myPage"] });
     },
-    gcTime: 1000 * 60 * 10,
   });
 };

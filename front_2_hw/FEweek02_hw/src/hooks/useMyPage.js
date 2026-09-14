@@ -6,6 +6,7 @@ export const useMyPage = (userId) => {
     queryKey: ["myPage", userId],
     queryFn: () => fetchUser(userId),
     staleTime: 1000 * 30,
+    gcTime: 1000 * 60 * 10,
     retry: 3,
   });
 };
