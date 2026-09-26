@@ -1,7 +1,12 @@
 import useCartStore from "../stores/cartStore";
+import type { CartItem as CartItemType } from "../types/product";
 import * as S from "../styles/styled";
 
-const CartItem = ({ item }) => {
+interface CartItemProps {
+  item: CartItemType;
+}
+
+const CartItem = ({ item }: CartItemProps) => {
   const increaseQuantity = useCartStore((s) => s.increaseQuantity);
   const decreaseQuantity = useCartStore((s) => s.decreaseQuantity);
   const removeItem = useCartStore((s) => s.removeItem);

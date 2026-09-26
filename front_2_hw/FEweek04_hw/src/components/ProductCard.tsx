@@ -1,7 +1,12 @@
 import useCartStore from "../stores/cartStore";
+import type { Product } from "../types/product";
 import * as S from "../styles/styled";
 
-const ProductCard = ({ product }) => {
+interface ProductCardProps {
+  product: Product;
+}
+
+const ProductCard = ({ product }: ProductCardProps) => {
   const addItem = useCartStore((s) => s.addItem);
 
   return (
