@@ -1,6 +1,8 @@
+import type { ProductsResponse } from "../types/product";
+
 const BASE_URL = "https://dummyjson.com";
 
-const getProducts = async () => {
+const getProducts = async (): Promise<ProductsResponse> => {
   const response = await fetch(`${BASE_URL}/products`);
 
   if (!response.ok) {
