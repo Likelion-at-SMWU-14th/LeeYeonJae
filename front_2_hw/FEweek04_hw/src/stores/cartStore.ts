@@ -1,7 +1,8 @@
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
+import type { CartStore } from "../types/product";
 
-const useCartStore = create(
+const useCartStore = create<CartStore>()(
   devtools(
     persist(
       (set) => ({
