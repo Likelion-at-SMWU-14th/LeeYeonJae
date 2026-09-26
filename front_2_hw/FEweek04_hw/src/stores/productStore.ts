@@ -1,8 +1,9 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import getProducts from "../apis/productApi";
+import type { ProductStore } from "../types/product";
 
-const useProductStore = create(
+const useProductStore = create<ProductStore>()(
   devtools((set) => ({
     products: [],
     isLoading: false,
