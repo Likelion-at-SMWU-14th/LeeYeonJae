@@ -23,12 +23,6 @@
       "title": "버섯볶음 🍄",
       "ingredients": "버섯, 양파, 다진 마늘, 간장, 식용유",
       "instructions": "팬에 식용유를 두르고 마늘과 양파를 볶아요. 버섯을 넣어 익힌 뒤 간장으로 간해요."
-    },
-    {
-      "title": "육회 비빔밥 🥩",
-      "ingredients": "밥 위에 샐러드 채소와 육회를 올려요. 고추장과 간장을 넣고 재료가 골고루 섞이도록 비벼요.",
-      "instructions": "밥 위에 샐러드 채소와 육회를 올려요. 고추장과 간장을 넣고 재료가 골고루 섞이도록 비벼요.",
-      "id": "5bT2e3RbL5w"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
