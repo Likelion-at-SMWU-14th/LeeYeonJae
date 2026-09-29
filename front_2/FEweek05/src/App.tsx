@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { getRecipes } from "./api/recipes";
+import { createRecipe, getRecipes } from "./api/recipes";
 import RecipeCard from "./components/RecipeCard";
 import RecipeForm from "./components/RecipeForm";
 import * as S from "./styles/styled";
-import type { Recipe } from "./types/recipe";
+import type { CreateRecipeRequest, Recipe } from "./types/recipe";
 
 export default function App() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
 
   async function loadRecipes() {
     setLoading(true);
@@ -18,6 +19,21 @@ export default function App() {
       console.error(error);
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function handleCreate(values: CreateRecipeRequest): Promise<boolean> {
+    setSaving(true);
+
+    try {
+      const createdRecipe = await createRecipe(values);
+      setRecipes((currentRecipes) => [...currentRecipes, createdRecipe]);
+      return true;
+    } catch (error: unknown) {
+      console.error(error);
+      return false;
+    } finally {
+      setSaving(false);
     }
   }
 
@@ -60,7 +76,10 @@ export default function App() {
         </S.ListPanel>
 
         <aside>
-          <RecipeForm />
+          <aside>
+            <RecipeForm disabled={saving} onSubmit={handleCreate} />
+          </aside>
+          ;
         </aside>
       </S.Layout>
     </S.Page>
