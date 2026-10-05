@@ -19,7 +19,10 @@ export async function fetchWikiInfo(
     );
     if (data.type !== "standard") return null;
     return { extract: data.extract, thumbnail: data.thumbnail };
-  } catch {
-    return null;
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response?.status === 404) {
+      return null;
+    }
+    throw error;
   }
 }

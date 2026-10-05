@@ -20,15 +20,25 @@ export default function ModelCard({ brand, model, year }: Props) {
   const [flipped, setFlipped] = useState(false);
   const [wikiInfo, setWikiInfo] = useState<WikiInfo | null>(null);
   const [wikiLoading, setWikiLoading] = useState(true);
+  const [wikiError, setWikiError] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
 
-    fetchWikiInfo(brand.label, model.Model_Name).then((info) => {
-      if (cancelled) return;
-      setWikiInfo(info);
-      setWikiLoading(false);
-    });
+    setWikiLoading(true);
+    setWikiError(false);
+    setWikiInfo(null);
+
+    fetchWikiInfo(brand.label, model.Model_Name)
+      .then((info) => {
+        if (!cancelled) setWikiInfo(info);
+      })
+      .catch(() => {
+        if (!cancelled) setWikiError(true);
+      })
+      .finally(() => {
+        if (!cancelled) setWikiLoading(false);
+      });
 
     return () => {
       cancelled = true;
@@ -56,6 +66,8 @@ export default function ModelCard({ brand, model, year }: Props) {
               />
             ) : wikiLoading ? (
               "Loading..."
+            ) : wikiError ? (
+              "Failed to load"
             ) : (
               "No image available"
             )}
@@ -76,7 +88,11 @@ export default function ModelCard({ brand, model, year }: Props) {
             ))}
           </S.Rows>
           <S.Desc>
-            {wikiLoading ? "Loading..." : wikiInfo?.extract || "unavailable"}
+            {wikiLoading
+              ? "Loading..."
+              : wikiError
+                ? "Failed to load"
+                : wikiInfo?.extract || "unavailable"}
           </S.Desc>
         </S.Back>
       </S.CardContent>
