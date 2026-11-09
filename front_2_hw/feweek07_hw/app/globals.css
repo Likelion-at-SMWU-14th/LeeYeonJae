@@ -1,0 +1,179 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #171717;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Apple SD Gothic Neo",
+    sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff3d6;
+  background-image: radial-gradient(#f3d9a0 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+.card {
+  width: 420px;
+  min-height: 480px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background: #ffffff;
+  border: 4px solid #202020;
+  border-radius: 24px;
+  box-shadow: 4px 4px 0 #202020;
+}
+
+h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.crystal {
+  font-size: 80px;
+  animation: float 2s ease-in-out infinite;
+  margin: 12px 0;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2.5px solid #202020;
+  border-radius: 14px;
+  background: #c968e1;
+  box-shadow: 1px 1px 0 #202020;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.btn:hover:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  background: #d9d9d9;
+  color: #909090;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn.reset {
+  background: #ffffff;
+  color: #171717;
+}
+
+.name-input {
+  width: 100%;
+  max-width: 340px;
+  padding: 14px 16px;
+  border: 3px solid #202020;
+  border-radius: 14px;
+  font-size: 16px;
+  text-align: center;
+  background: #ffffff;
+  outline: none;
+}
+
+.fortune {
+  width: 100%;
+  text-align: center;
+}
+
+.emoji {
+  font-size: 80px;
+  animation: pop 0.5s ease;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin: 20px 0;
+}
+
+.score strong {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.score span {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.bar {
+  height: 18px;
+  border: 3px solid #202020;
+  border-radius: 100px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: #ffdc5c;
+}
+
+.fill.high {
+  background: #5ad1a4;
+}
+
+.fill.low {
+  background: #ff8a70;
+}
+
+.message {
+  color: #606060;
+  margin: 20px 0 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.3) rotate(-20deg);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.2) rotate(8deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
